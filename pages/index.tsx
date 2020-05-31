@@ -1,11 +1,12 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import React from 'react';
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
         <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico"/>
       </Head>
 
       <main>
@@ -55,11 +56,11 @@ export default function Home() {
           rel="noopener noreferrer"
         >
           Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
+          <img src="/vercel.svg" alt="Vercel Logo" className="logo"/>
         </a>
       </footer>
 
-      <style jsx>{`
+      <style jsx={true}>{`
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -205,5 +206,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
