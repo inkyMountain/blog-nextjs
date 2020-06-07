@@ -4,7 +4,6 @@ import {User} from './entity/User';
 
 createConnection({
   type: 'postgres',
-  port: 5432,
   username: 'blog'
 }).then(async connection => {
 
