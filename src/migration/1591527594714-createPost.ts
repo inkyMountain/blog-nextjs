@@ -20,7 +20,7 @@ export class createPost1591527594714 implements MigrationInterface {
         {
           name: 'content',
           type: 'text'
-        }
+        },
       ]
     }));
   }
