@@ -1,22 +1,19 @@
+import {Post} from './Post';
 import {User} from './User';
-import {Comment} from './Comment';
 import {
   Column,
   Entity,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToOne,
   ManyToOne,
-  OneToMany,
 } from 'typeorm';
 
-@Entity('posts')
-export class Post {
+@Entity('comments')
+export class Comment {
   @PrimaryGeneratedColumn('increment')
   id: number;
-
-  @Column('varchar')
-  public title: string;
 
   @Column('text')
   public content: string;
@@ -27,11 +24,11 @@ export class Post {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @ManyToOne((type) => User, (user) => user.posts)
-  author: User;
+  @ManyToOne((type) => User, (user) => user.comments)
+  user: User;
 
-  @OneToMany((type) => Comment, (comment) => comment.post)
-  comments: Comment[];
+  @ManyToOne((type) => Post, (post) => post.comments)
+  post: Post;
 
   constructor() {}
 }

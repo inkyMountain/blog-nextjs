@@ -7,9 +7,8 @@
     "build": "next build",
     "start": "next start",
     "typeorm:build": "babel -w ./src --out-dir dist --extensions .ts,.tsx",
-    "migration:run": "typeorm migration:run",
     "migration:create": "typeorm migration:create",
-    "migration:revert": "typeorm migration:revert",
+    "migration:run": "typeorm migration:run",
     "entity:create": "typeorm entity:create"
   },
   "dependencies": {
@@ -22,7 +21,8 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.25"
+    "typeorm": "^0.2.25",
+    "typeorm-naming-strategies": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",

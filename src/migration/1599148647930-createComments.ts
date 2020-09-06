@@ -1,23 +1,21 @@
 import {MigrationInterface, QueryRunner, Table} from 'typeorm';
 
-export class CreateUsers1598802927960 implements MigrationInterface {
+export class createComments1599148647930 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    queryRunner.createTable(
+    await queryRunner.createTable(
       new Table({
-        name: 'users',
+        name: 'comments',
         columns: [
           {
+            name: 'id',
             isGenerated: true,
             type: 'int',
-            name: 'id',
+            generationStrategy: 'increment',
+            isPrimary: true,
           },
           {
-            type: 'varchar',
-            name: 'username',
-          },
-          {
-            type: 'varchar',
-            name: 'password_digest',
+            name: 'content',
+            type: 'text',
           },
           {
             name: 'created_at',
@@ -29,12 +27,20 @@ export class CreateUsers1598802927960 implements MigrationInterface {
             type: 'timestamp',
             default: 'now()',
           },
+          {
+            name: 'user_id',
+            type: 'int',
+          },
+          {
+            name: 'post_id',
+            type: 'int',
+          },
         ],
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('users');
+    await queryRunner.dropTable('comments')
   }
 }
