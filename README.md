@@ -26,6 +26,9 @@ CREATE DATABASE [database name] ENCODING 'UTF8' LC_COLLATE 'en_US.utf8' LC_CTYPE
 # 创建位于 src/migration 下的 migartion 文件
 npm run migartion:create
 
+# 如果 table 建错了可以 revert
+npm run migration:revert
+
 # 启动开发服务器
 npm run dev
 

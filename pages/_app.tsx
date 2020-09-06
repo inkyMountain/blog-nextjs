@@ -8,12 +8,57 @@ export default function App({Component, pageProps}) {
       <Head>
         <title>陈亦涛</title>
         <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+          name='viewport'
+          content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover'
         />
       </Head>
-      <div className="global-div">global</div>
       <Component {...pageProps} />
+
+      <style jsx global>
+        {`
+          *,
+          *::before,
+          *::after {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            outline: none;
+            border: none;
+            background: none;
+          }
+
+          a:link,
+          a:visited,
+          a:hover,
+          a:active {
+            color: inherit;
+            text-decoration: none;
+          }
+
+          ol,
+          ul {
+            list-style: none;
+          }
+
+          html,
+          body,
+          #app,
+          #root,
+          #_next {
+            height: 100%;
+          }
+
+          button {
+            -webkit-appearance: none;
+          }
+
+          input[type='password']::-ms-reveal,
+          input[type='password']::-ms-clear {
+            display: none;
+          }
+        `}
+      </style>
     </Fragment>
   );
 }
