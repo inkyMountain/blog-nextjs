@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import Head from 'next/head';
-import 'global.less';
+import {GetServerSideProps} from 'next';
 
 export default function App({Component, pageProps}) {
   return (
@@ -62,3 +62,10 @@ export default function App({Component, pageProps}) {
     </Fragment>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  console.log('app getServerSideProps');
+  return {
+    props: {}
+  };
+};
