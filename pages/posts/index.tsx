@@ -1,7 +1,7 @@
 import React, {Fragment, useCallback, useEffect, useState} from 'react';
 import {GetServerSideProps, NextPage} from 'next';
 import Link from 'next/link';
-import getDataBaseConnection from '../../lib/getDataBaseConnection';
+import getDatabaseConnection from '../../lib/getDatabaseConnection';
 import {Post} from '../../src/entity/Post';
 import {isMetaProperty} from '@babel/types';
 
@@ -43,7 +43,7 @@ const Posts: NextPage<FirstProps> = (props) => {
 export default Posts;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const {manager} = await getDataBaseConnection();
+  const {manager} = await getDatabaseConnection();
   const posts = await manager.find(Post).then((posts) => {
     return posts.map((post) => {
       const newPost = {

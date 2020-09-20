@@ -2,7 +2,7 @@ import React, {useCallback, useEffect, useState} from 'react';
 import logo from 'assets/images/vercel.svg';
 import router from 'next/router';
 import {GetServerSideProps, NextPage} from 'next';
-import getDataBaseConnection from '../../lib/getDataBaseConnection';
+import getDatabaseConnection from '../../lib/getDatabaseConnection';
 import {Post} from '../../src/entity/Post';
 
 interface Blog {
@@ -30,7 +30,7 @@ export default First;
 
 export const getServerSideProps: GetServerSideProps<{ [key: string]: any }, { id: string }> = async (context) => {
   const {params} = context;
-  const {manager} = await getDataBaseConnection();
+  const {manager} = await getDatabaseConnection();
   const post = await manager.findOne(Post, params.id);
   return {
     props: {

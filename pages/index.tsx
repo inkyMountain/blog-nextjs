@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import {GetServerSideProps, NextPage} from 'next';
-import getDataBaseConnection from '../lib/getDataBaseConnection';
+import getDatabaseConnection from '../lib/getDatabaseConnection';
 import {Post} from '../src/entity/Post';
 
 interface Props {
@@ -22,7 +22,7 @@ export default Posts;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   console.log('index getServerSideProps');
-  const {manager} = await getDataBaseConnection();
+  const {manager} = await getDatabaseConnection();
   const posts = await manager.find(Post).then((posts) => {
     return posts.map((post) => {
       return {

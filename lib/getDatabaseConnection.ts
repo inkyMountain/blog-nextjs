@@ -6,7 +6,7 @@ import {Comment} from '../src/entity/Comment';
 import {User} from '../src/entity/User';
 
 const manager = getConnectionManager();
-const getDataBaseConnection: () => Promise<Connection> = async () => {
+const getDatabaseConnection: () => Promise<Connection> = async () => {
   if (manager.has('default')) {
     const defaultConnection = manager.get('default');
     console.log('关闭 connection');
@@ -24,4 +24,4 @@ const getDataBaseConnection: () => Promise<Connection> = async () => {
   });
 };
 
-export default getDataBaseConnection;
+export default getDatabaseConnection;
