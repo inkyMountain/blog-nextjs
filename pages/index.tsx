@@ -33,22 +33,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
     });
   });
   console.log('posts', posts);
-  // const posts = await manager.query('select * from posts').then((posts) => {
-  //   return posts.map((post) => {
-  //     const newPost = {
-  //       ...post,
-  //       updatedAt: post.updated_at.getTime(),
-  //       createdAt: post.created_at.getTime(),
-  //     };
-  //     delete newPost.updated_at;
-  //     delete newPost.created_at;
-  //     return newPost;
-  //   });
-  // });
 
   return {
     props: {
-      posts,
+      posts: JSON.parse(JSON.stringify(posts))
     },
   };
 };

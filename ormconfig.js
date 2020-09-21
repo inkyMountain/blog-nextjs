@@ -1,6 +1,6 @@
 const {SnakeNamingStrategy} = require('typeorm-naming-strategies');
 
-export default {
+module.exports = {
   type: 'postgres',
   host: 'localhost',
   port: 5432,

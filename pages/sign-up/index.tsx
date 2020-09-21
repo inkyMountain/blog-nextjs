@@ -44,7 +44,6 @@ const SignUp: NextPage = (props) => {
       password: event.target.value
     });
   };
-
   const onPasswordConfirmationChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     setFormData({
       ...formData,
@@ -61,8 +60,7 @@ const SignUp: NextPage = (props) => {
                  onChange={onUsernameChange}/>
         </label>
 
-        <label>
-          密码
+        <label>密码
           <input type="text" className="password"
                  value={formData.password}
                  onChange={onPasswordChange}/>
@@ -73,16 +71,31 @@ const SignUp: NextPage = (props) => {
                  value={formData.passwordConfirmation}
                  onChange={onPasswordConfirmationChange}/>
         </label>
-        <input type="submit" value={'xxx'}/>
+        <input type="submit" defaultValue='提交'/>
       </form>
 
       <style jsx>{`
         label {
-          margin-right: 20px;
+          width: 100%;
+          margin: 10px;
         }
         
         input {
           background-color: lightblue;
+          padding: 10px;
+          line-height: 30px;
+        }
+        
+        .sign-up {
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        .sign-up-form {
+          display: flex;
+          flex-direction: column;
         }
       `}</style>
     </div>
